@@ -13,10 +13,12 @@ class CircleShape(pygame.sprite.Sprite):
         self.velocity = pygame.Vector2(0, 0)
         self.radius = radius
 
+    #Circleshape class draw function not implemented at this level
     def draw(self, screen):
         # sub-classes must override
         pass
 
+    #Circleshape class update function not implemented at this level
     def update(self, dt):
         # sub-classes must override
         pass
