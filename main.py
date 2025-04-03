@@ -4,6 +4,7 @@
 import pygame
 import sys
 from constants import *
+from circleshape import *
 from player import *
 from asteroid import *
 from asteroidfield import *
@@ -31,7 +32,7 @@ def main():
     Player.containers = (updateable, drawable)
     Asteroid.containers = (asteroids, updateable, drawable)
     AsteroidField.containers = (updateable,)
-    Shot.containers = (updateable, drawable)
+    Shot.containers = (shots, updateable, drawable)
 
 # set up the screen size and initialize the player
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -62,6 +63,12 @@ def main():
                 print("Game over!")
                 sys.exit()
             
+
+        for shot in shots:
+            for asteroid in asteroids:
+                if shot.collision(asteroid):
+                    shot.kill()
+                    asteroid.kill()
 
     # update the game screen at a set frequency
         pygame.display.flip()
