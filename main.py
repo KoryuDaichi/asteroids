@@ -63,12 +63,12 @@ def main():
                 print("Game over!")
                 sys.exit()
             
-
+    # Check for Shot asteroid collision
         for shot in shots:
             for asteroid in asteroids:
                 if shot.collision(asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
     # update the game screen at a set frequency
         pygame.display.flip()
